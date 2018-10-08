@@ -1,0 +1,46 @@
+<web-app id = "WebApp_ID" version = "2.4"
+   xmlns = "http://java.sun.com/xml/ns/j2ee" 
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://java.sun.com/xml/ns/j2ee 
+   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+ <display-name>booksresponsiveproject</display-name>
+   <welcome-file-list>
+    <welcome-file>/WEB-INF/pages/booksresponsive.jsp</welcome-file>    
+  </welcome-file-list>
+ 
+   <servlet id="Servlet_1538957108193">
+      <servlet-name>booksresponsive</servlet-name>
+      <servlet-class>
+         org.springframework.web.servlet.DispatcherServlet
+      </servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+   <servlet id="Servlet_1538957108202">
+		<servlet-name>SpringController</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring-mvc.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping id="ServletMapping_1538957108165">
+      <servlet-name>booksresponsive</servlet-name>
+      <url-pattern>/</url-pattern>
+   </servlet-mapping>
+   <servlet-mapping id="ServletMapping_1538957108179">
+		<servlet-name>SpringController</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<listener> 
+    	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> 
+	</listener>
+	<servlet id="Servlet_1538957108206">
+	  <servlet-name>SearchController</servlet-name>
+	  <servlet-class>com.nm.namesearch.servlet.Controller</servlet-class>
+	</servlet>
+	<servlet-mapping id="ServletMapping_1538957108182">
+	  <servlet-name>SearchController</servlet-name>
+	  <url-pattern>/SearchController</url-pattern>
+	</servlet-mapping>	 
+</web-app>
